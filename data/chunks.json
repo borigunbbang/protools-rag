@@ -1,0 +1,92 @@
+[
+  {
+    "id": "PT-001",
+    "text": "Pro Tools의 Playback Engine(Setup > Playback Engine)은 처리·재생·녹음 능력에 영향을 주는 시스템 설정을 모아 둔 곳이다. 대부분의 경우 기본값이 최적이지만, 크거나 처리량이 많은 세션에서는 이 설정을 조정할 수 있다. 처음 Pro Tools를 실행하거나 이전에 쓰던 Playback Engine을 쓸 수 없으면 오디오 장치(Playback Engine)를 선택하라는 안내가 나온다.",
+    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=210",
+    "section": "녹음 준비: Playback Engine (2026.4)"
+  },
+  {
+    "id": "PT-002",
+    "text": "Playback Engine의 Hardware Buffer Size(H/W Buffer Size)는 Native 플러그인 처리 같은 호스트 기반 작업에 쓰는 버퍼 크기를 정한다. 값을 낮추면 녹음 시 지연(레이턴시) 문제가 개선되고, 가상 악기를 실시간으로 연주할 때의 MIDI-오디오 지연이 줄어든다. 호스트 기반 시스템에서는 녹음 대기 트랙과 라이브 입력이 있는 Aux Input 트랙의 입력-출력 모니터링 지연도 줄어든다.",
+    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=220",
+    "section": "녹음 준비: 하드웨어 버퍼 크기 낮추기 (2026.4)"
+  },
+  {
+    "id": "PT-003",
+    "text": "Playback Engine의 Hardware Buffer Size를 높게 설정하는 것은 Native 플러그인을 사용하는 세션을 재생하고 믹싱할 때 유용하다. 또한 더 높은 버퍼 크기가 필요한 컴퓨터에서 발생하는 오류를 줄이는 데에도 도움이 될 수 있다. 반대로 낮은 설정은 녹음 시 지연 문제 개선에 유용하다.",
+    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=220",
+    "section": "녹음 준비: 하드웨어 버퍼 크기 높이기 (2026.4)"
+  },
+  {
+    "id": "PT-004",
+    "text": "오디오 트랙을 녹음하는 기본 순서: 1) 트랙의 Input Path 선택기에서 녹음할 입력 경로를 고른다. 2) Output Path 선택기에서 모니터링 경로를 고른다. 3) 트랙의 Record Enable 버튼을 눌러 빨간색으로 켠다. 4) 음원(악기, 믹서, 프리앰프)의 출력 레벨을 조절해 입력 미터가 -6 dB에서 -12 dB 정도에서 피크가 나고 오디오 인터페이스의 클리핑 표시가 켜지지 않게 한다.",
+    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=875",
+    "section": "녹음 준비: 오디오 트랙 녹음 기본 순서 (2026.4)"
+  },
+  {
+    "id": "PT-005",
+    "text": "Pro Tools에는 Shuffle, Spot, Slip, Grid 네 가지 Edit 모드가 있으며, Edit 창 왼쪽 위의 버튼을 눌러 선택한다. Edit 모드는 오디오·MIDI 클립의 이동과 배치, Copy와 Paste의 동작, Trim·Selector·Grabber·Pencil 도구의 동작 방식에 영향을 준다. 악센트 키(`)를 누르면 Edit 모드를 차례로 전환할 수 있다.",
+    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=959",
+    "section": "편집: 네 가지 Edit 모드 (2026.4)"
+  },
+  {
+    "id": "PT-006",
+    "text": "Shuffle 모드에서는 클립을 자유롭게 옮기거나 자르고 지울 수 있지만 클립끼리 서로 붙어서 움직인다. 순서는 바꿀 수 있어도 떼어 놓거나 겹치게 할 수는 없다. 트랙 맨 앞에 클립을 추가하면 뒤의 클립들이 그 길이만큼 오른쪽으로 밀린다. Trim 도구로 클립 시작이나 끝을 바꾸면 뒤 클립도 따라 움직인다. F1 키로 Shuffle 모드를 켠다.",
+    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=959",
+    "section": "편집: Shuffle 모드 (2026.4)"
+  },
+  {
+    "id": "PT-007",
+    "text": "Slip 모드에서는 클립을 트랙 안이나 다른 트랙으로 자유롭게 옮길 수 있다. 클립 사이에 빈 공간을 둘 수 있고 이 공간은 재생 시 무음이 된다. 클립을 다른 클립과 겹치거나 완전히 덮도록 옮기는 것도 가능하다. Trim·Selector·Grabber·Pencil 도구를 시간 위치 제약 없이 쓰고 싶을 때 사용하며, F2 키로 켠다.",
+    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=960",
+    "section": "편집: Slip 모드 (2026.4)"
+  },
+  {
+    "id": "PT-008",
+    "text": "Spot 모드는 클립을 정확한 위치에 놓을 때 쓰며, 클립을 끌어다 놓으면 목적지 위치를 입력하라는 창이 뜬다. 타임코드 기준 후반 작업에 유용하고 F3 키로 켠다. Grid 모드에서는 옮기거나 자르거나 삽입한 클립과 MIDI 노트가 현재 선택한 Grid 값에 맞춰 달라붙으며 F4 키로 켠다.",
+    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=960",
+    "section": "편집: Spot 모드와 Grid 모드 (2026.4)"
+  },
+  {
+    "id": "PT-009",
+    "text": "선택 영역이나 편집 커서 위치에서 클립을 나누려면 Selector 도구로 선택 영역을 만들거나 나눌 지점을 클릭한 뒤 Edit > Separate > At Selection을 선택한다. 선택 영역에서 마우스 오른쪽 클릭 후 Separate를 고르거나 Command+E(Mac)/Control+E(Windows)를 눌러도 된다. 선택 영역이 없으면 커서 위치에서 클립이 두 개로 나뉜다.",
+    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=1015",
+    "section": "편집: 클립 자르기 Separate (2026.4)"
+  },
+  {
+    "id": "PT-010",
+    "text": "페이드 인을 만드는 순서: 1) 페이드를 넣을 클립의 시작 부분을 선택한다. 선택은 클립의 정확한 시작점이나 그 앞의 빈 공간까지 포함해야 한다. 2) Edit > Fades > Create를 고르거나 Command+F(Mac)/Control+F(Windows)를 누른다. 3) 페이드 곡선과 설정을 고르고 Audition 버튼으로 들어 본다. 4) OK를 누른다. 선택 길이가 페이드 길이가 된다.",
+    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=1039",
+    "section": "편집: 페이드 인 만들기 (2026.4)"
+  },
+  {
+    "id": "PT-011",
+    "text": "Bounce Mix 명령은 버스 녹음용 트랙을 따로 만들지 않고도 서브믹스를 포함한 믹스를 여러 파일 형식으로 내보낸다. 바운스는 별도의 오디오 파일로 기록되므로 바운스용 트랙을 남겨 둘 필요가 없다. 바운스는 실시간보다 빠른 오프라인 방식이나, 믹스를 들으면서 진행하는 실시간 방식으로 할 수 있다.",
+    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=1716",
+    "section": "바운스와 익스포트: Bounce Mix란 (2026.4)"
+  },
+  {
+    "id": "PT-012",
+    "text": "최종 믹스를 바운스하는 순서: 트랙 레벨과 오토메이션, 플러그인 설정을 마무리하고 포함할 트랙이 뮤트나 비활성 상태가 아닌지 확인한다. 포함할 트랙의 출력을 같은 출력 또는 버스 경로로 보내고 디더를 추가한다. 전체를 바운스하려면 Return to Zero로 처음으로 가고, 일부만 하려면 선택 영역을 만든다. File > Bounce Mix에서 소스 경로와 설정을 고른 뒤 Bounce를 누른다.",
+    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=1731",
+    "section": "바운스와 익스포트: 최종 믹스 바운스 순서 (2026.4)"
+  },
+  {
+    "id": "PT-013",
+    "text": "클립을 다른 세션이나 다른 오디오 프로그램에서 쓰려면 Export Clips as Files 명령을 쓴다. Clip List에서 내보낼 클립을 선택하고 Clip List 메뉴에서 Export Clips as Files를 고른다. Export Selected 창에서 File Type, Format, Bit Depth, Sample Rate와 저장 폴더를 정한 뒤 Export를 누른다. 더 낮은 비트 뎁스로 내보내면 디더가 적용된다.",
+    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=751",
+    "section": "바운스와 익스포트: 클립을 파일로 내보내기 (2026.4)"
+  },
+  {
+    "id": "PT-014",
+    "text": "재생과 녹음 기본 단축키(Mac 기준, Windows는 괄호): 재생 시작/정지는 Spacebar, 반속 재생은 Shift+Spacebar. 녹음 시작은 Command+Spacebar 또는 F12(Control+Spacebar 또는 F12), 녹음 정지는 Spacebar. 녹음을 정지하면서 테이크를 버리려면 Command+마침표(Control+마침표)를 누르며 이 동작은 되돌릴 수 없다. Loop Record 켜기/끄기는 Option+L(Alt+L).",
+    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Shortcuts_2025.10.pdf#page=27",
+    "section": "단축키: 재생과 녹음 (2025.10)"
+  },
+  {
+    "id": "PT-015",
+    "text": "자주 쓰는 메뉴 단축키(Mac 기준, Windows는 괄호): 세션 저장 Command+S(Control+S), Bounce Mix Command+Option+B(Control+Alt+B), 실행 취소 Command+Z(Control+Z), 다시 실행 Command+Shift+Z(Control+Shift+Z), 오디오 가져오기 Command+Shift+I(Control+Shift+I). 선택 영역 복제는 Command+D(Control+D), 선택 위치에서 클립 나누기는 Command+E(Control+E).",
+    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Shortcuts_2025.10.pdf#page=52",
+    "section": "단축키: 저장, 바운스, 편집 메뉴 (2025.10)"
+  }
+]
