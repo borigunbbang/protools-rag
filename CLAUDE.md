@@ -35,6 +35,11 @@
 - 벡터 저장소 data/vectors.json은 { model, dtype, dim, createdAt, chunks: [{ id, text, url, section, vector }] }.
   저장소의 model·dtype이 현재 embedder와 다르면 검색을 거부하고 "build-index를 다시 실행하라"고 안내.
 
+## 검색 계약 (`src/search.mjs`)
+- 벡터는 정규화되어 있으므로 코사인 유사도 = 내적. 점수 내림차순 top-k(기본 3, --k로 변경).
+- 약한 근거 기준 WEAK_THRESHOLD = 0.55는 src/search.mjs에서만 정의·export하고 다른 파일은 import.
+  1위 점수가 이보다 낮으면 "관련 자료가 약함" 표시. 결과는 버리지 않는다. 0.55가 맞는지는 STEP 5에서 관찰 후 조정.
+- search.mjs는 직접 실행됐을 때만 CLI를 돈다(import.meta.url === pathToFileURL(process.argv[1]).href).
+
 ## 결정 필요
-- 검색 결과를 몇 개 보여 주고, 점수가 몇 점 아래면 "관련 자료가 약함"으로 볼까?
 - LLM에게 어떤 규칙(시스템 메시지)을 줄까?
