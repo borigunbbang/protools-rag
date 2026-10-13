@@ -130,5 +130,11 @@
     "text": "클라이언트 납품용 최종 믹스는 WAV, 48kHz, 24비트, 스테레오 인터리브드로 바운스한다. 파일 이름은 \"곡명_Mix_v번호_YYMMDD\" 형식으로 짓고, 수정본을 보낼 때마다 v 번호를 하나씩 올린다. 바운스 전에는 마스터 페이더 미터에서 클리핑이 없는지, 뮤트되거나 비활성화된 트랙이 빠지지 않았는지 확인한다. 바운스가 끝나면 파일을 처음부터 끝까지 한 번 들어 본 뒤에 납품 폴더 \"Deliver/날짜\"에 복사한다.",
     "url": "docs/sop.md#납품-바운스-규칙",
     "section": "SOP: 납품 바운스 규칙"
+  },
+  {
+    "id": "PT-023",
+    "text": "클립 길이를 줄이는(트림) 편집 메뉴 단축키(Mac 기준, Windows는 괄호): 선택 영역에 맞게 클립 자르기 Trim Clip to Selection은 Command+T(Control+T), 클립 시작을 커서 위치까지 트림 Trim Clip Start to Insertion은 Option+Shift+7(Alt+Shift+7), 클립 끝을 커서 위치까지 트림 Trim Clip End to Insertion은 Option+Shift+8(Alt+Shift+8). 선택 영역 길이에 맞게 시간 압축·확장하는 TCE Edit to Timeline selection은 Option+Shift+U(Alt+Shift+U)이며 Pro Tools Ultimate 전용이다.",
+    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Shortcuts_2025.10.pdf#page=54",
+    "section": "단축키: 클립 트림과 시간 압축 (2025.10)"
   }
 ]
