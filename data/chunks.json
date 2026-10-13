@@ -136,5 +136,11 @@
     "text": "클립 길이를 줄이는(트림) 편집 메뉴 단축키(Mac 기준, Windows는 괄호): 선택 영역에 맞게 클립 자르기 Trim Clip to Selection은 Command+T(Control+T), 클립 시작을 커서 위치까지 트림 Trim Clip Start to Insertion은 Option+Shift+7(Alt+Shift+7), 클립 끝을 커서 위치까지 트림 Trim Clip End to Insertion은 Option+Shift+8(Alt+Shift+8). 선택 영역 길이에 맞게 시간 압축·확장하는 TCE Edit to Timeline selection은 Option+Shift+U(Alt+Shift+U)이며 Pro Tools Ultimate 전용이다.",
     "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Shortcuts_2025.10.pdf#page=54",
     "section": "단축키: 클립 트림과 시간 압축 (2025.10)"
+  },
+  {
+    "id": "PT-024",
+    "section": "편집: 페이드 아웃 만들기 (2026.4)",
+    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=1040",
+    "text": "페이드 아웃을 만드는 순서: 1) 페이드를 넣을 클립의 끝 부분을 선택한다. 선택은 클립의 정확한 끝점이나 그 뒤의 빈 공간까지 포함해야 한다. 2) Edit > Fades > Create를 고르거나 Command+F(Mac)/Control+F(Windows)를 누른다. 3) 페이드 아웃 곡선과 설정을 고르고 Audition 버튼으로 들어 본다. 4) OK를 누른다. Fades 창 없이 기본 설정으로 바로 적용하려면 Command+Control+F(Mac)/Control+Start+F(Windows)를 누른다."
   }
 ]
