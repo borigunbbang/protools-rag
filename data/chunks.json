@@ -13,80 +13,104 @@
   },
   {
     "id": "PT-003",
-    "text": "Playback Engine의 Hardware Buffer Size를 높게 설정하는 것은 Native 플러그인을 사용하는 세션을 재생하고 믹싱할 때 유용하다. 또한 더 높은 버퍼 크기가 필요한 컴퓨터에서 발생하는 오류를 줄이는 데에도 도움이 될 수 있다. 반대로 낮은 설정은 녹음 시 지연 문제 개선에 유용하다.",
-    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=220",
-    "section": "녹음 준비: 하드웨어 버퍼 크기 높이기 (2026.4)"
-  },
-  {
-    "id": "PT-004",
     "text": "오디오 트랙을 녹음하는 기본 순서: 1) 트랙의 Input Path 선택기에서 녹음할 입력 경로를 고른다. 2) Output Path 선택기에서 모니터링 경로를 고른다. 3) 트랙의 Record Enable 버튼을 눌러 빨간색으로 켠다. 4) 음원(악기, 믹서, 프리앰프)의 출력 레벨을 조절해 입력 미터가 -6 dB에서 -12 dB 정도에서 피크가 나고 오디오 인터페이스의 클리핑 표시가 켜지지 않게 한다.",
     "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=875",
     "section": "녹음 준비: 오디오 트랙 녹음 기본 순서 (2026.4)"
   },
   {
-    "id": "PT-005",
+    "id": "PT-004",
     "text": "Pro Tools에는 Shuffle, Spot, Slip, Grid 네 가지 Edit 모드가 있으며, Edit 창 왼쪽 위의 버튼을 눌러 선택한다. Edit 모드는 오디오·MIDI 클립의 이동과 배치, Copy와 Paste의 동작, Trim·Selector·Grabber·Pencil 도구의 동작 방식에 영향을 준다. 악센트 키(`)를 누르면 Edit 모드를 차례로 전환할 수 있다.",
     "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=959",
     "section": "편집: 네 가지 Edit 모드 (2026.4)"
   },
   {
-    "id": "PT-006",
+    "id": "PT-005",
     "text": "Shuffle 모드에서는 클립을 자유롭게 옮기거나 자르고 지울 수 있지만 클립끼리 서로 붙어서 움직인다. 순서는 바꿀 수 있어도 떼어 놓거나 겹치게 할 수는 없다. 트랙 맨 앞에 클립을 추가하면 뒤의 클립들이 그 길이만큼 오른쪽으로 밀린다. Trim 도구로 클립 시작이나 끝을 바꾸면 뒤 클립도 따라 움직인다. F1 키로 Shuffle 모드를 켠다.",
     "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=959",
     "section": "편집: Shuffle 모드 (2026.4)"
   },
   {
-    "id": "PT-007",
+    "id": "PT-006",
     "text": "Slip 모드에서는 클립을 트랙 안이나 다른 트랙으로 자유롭게 옮길 수 있다. 클립 사이에 빈 공간을 둘 수 있고 이 공간은 재생 시 무음이 된다. 클립을 다른 클립과 겹치거나 완전히 덮도록 옮기는 것도 가능하다. Trim·Selector·Grabber·Pencil 도구를 시간 위치 제약 없이 쓰고 싶을 때 사용하며, F2 키로 켠다.",
     "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=960",
     "section": "편집: Slip 모드 (2026.4)"
   },
   {
-    "id": "PT-008",
+    "id": "PT-007",
     "text": "Spot 모드는 클립을 정확한 위치에 놓을 때 쓰며, 클립을 끌어다 놓으면 목적지 위치를 입력하라는 창이 뜬다. 타임코드 기준 후반 작업에 유용하고 F3 키로 켠다. Grid 모드에서는 옮기거나 자르거나 삽입한 클립과 MIDI 노트가 현재 선택한 Grid 값에 맞춰 달라붙으며 F4 키로 켠다.",
     "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=960",
     "section": "편집: Spot 모드와 Grid 모드 (2026.4)"
   },
   {
-    "id": "PT-009",
-    "text": "선택 영역이나 편집 커서 위치에서 클립을 나누려면 Selector 도구로 선택 영역을 만들거나 나눌 지점을 클릭한 뒤 Edit > Separate > At Selection을 선택한다. 선택 영역에서 마우스 오른쪽 클릭 후 Separate를 고르거나 Command+E(Mac)/Control+E(Windows)를 눌러도 된다. 선택 영역이 없으면 커서 위치에서 클립이 두 개로 나뉜다.",
-    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=1015",
-    "section": "편집: 클립 자르기 Separate (2026.4)"
-  },
-  {
-    "id": "PT-010",
+    "id": "PT-008",
     "text": "페이드 인을 만드는 순서: 1) 페이드를 넣을 클립의 시작 부분을 선택한다. 선택은 클립의 정확한 시작점이나 그 앞의 빈 공간까지 포함해야 한다. 2) Edit > Fades > Create를 고르거나 Command+F(Mac)/Control+F(Windows)를 누른다. 3) 페이드 곡선과 설정을 고르고 Audition 버튼으로 들어 본다. 4) OK를 누른다. 선택 길이가 페이드 길이가 된다.",
     "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=1039",
     "section": "편집: 페이드 인 만들기 (2026.4)"
   },
   {
-    "id": "PT-011",
-    "text": "Bounce Mix 명령은 버스 녹음용 트랙을 따로 만들지 않고도 서브믹스를 포함한 믹스를 여러 파일 형식으로 내보낸다. 바운스는 별도의 오디오 파일로 기록되므로 바운스용 트랙을 남겨 둘 필요가 없다. 바운스는 실시간보다 빠른 오프라인 방식이나, 믹스를 들으면서 진행하는 실시간 방식으로 할 수 있다.",
-    "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=1716",
-    "section": "바운스와 익스포트: Bounce Mix란 (2026.4)"
-  },
-  {
-    "id": "PT-012",
+    "id": "PT-009",
     "text": "최종 믹스를 바운스하는 순서: 트랙 레벨과 오토메이션, 플러그인 설정을 마무리하고 포함할 트랙이 뮤트나 비활성 상태가 아닌지 확인한다. 포함할 트랙의 출력을 같은 출력 또는 버스 경로로 보내고 디더를 추가한다. 전체를 바운스하려면 Return to Zero로 처음으로 가고, 일부만 하려면 선택 영역을 만든다. File > Bounce Mix에서 소스 경로와 설정을 고른 뒤 Bounce를 누른다.",
     "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=1731",
     "section": "바운스와 익스포트: 최종 믹스 바운스 순서 (2026.4)"
   },
   {
-    "id": "PT-013",
+    "id": "PT-010",
     "text": "클립을 다른 세션이나 다른 오디오 프로그램에서 쓰려면 Export Clips as Files 명령을 쓴다. Clip List에서 내보낼 클립을 선택하고 Clip List 메뉴에서 Export Clips as Files를 고른다. Export Selected 창에서 File Type, Format, Bit Depth, Sample Rate와 저장 폴더를 정한 뒤 Export를 누른다. 더 낮은 비트 뎁스로 내보내면 디더가 적용된다.",
     "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Reference_Guide_2026.4.pdf#page=751",
     "section": "바운스와 익스포트: 클립을 파일로 내보내기 (2026.4)"
   },
   {
-    "id": "PT-014",
+    "id": "PT-011",
     "text": "재생과 녹음 기본 단축키(Mac 기준, Windows는 괄호): 재생 시작/정지는 Spacebar, 반속 재생은 Shift+Spacebar. 녹음 시작은 Command+Spacebar 또는 F12(Control+Spacebar 또는 F12), 녹음 정지는 Spacebar. 녹음을 정지하면서 테이크를 버리려면 Command+마침표(Control+마침표)를 누르며 이 동작은 되돌릴 수 없다. Loop Record 켜기/끄기는 Option+L(Alt+L).",
     "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Shortcuts_2025.10.pdf#page=27",
     "section": "단축키: 재생과 녹음 (2025.10)"
   },
   {
-    "id": "PT-015",
+    "id": "PT-012",
     "text": "자주 쓰는 메뉴 단축키(Mac 기준, Windows는 괄호): 세션 저장 Command+S(Control+S), Bounce Mix Command+Option+B(Control+Alt+B), 실행 취소 Command+Z(Control+Z), 다시 실행 Command+Shift+Z(Control+Shift+Z), 오디오 가져오기 Command+Shift+I(Control+Shift+I). 선택 영역 복제는 Command+D(Control+D), 선택 위치에서 클립 나누기는 Command+E(Control+E).",
     "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Shortcuts_2025.10.pdf#page=52",
     "section": "단축키: 저장, 바운스, 편집 메뉴 (2025.10)"
+  },
+  {
+    "id": "PT-013",
+    "text": "프로 툴스(Pro Tools)는 아비드 테크놀로지(이전의 디지디자인)가 마이크로소프트 윈도우 및 macOS용으로 개발하고 출시한 디지털 오디오 워크스테이션(DAW)이다. 음악 제작 및 프로덕션, 영상용 사운드(사운드 디자인, 오디오 후반 작업 및 믹싱) 그리고 일반적으로 사운드 리코딩, 편집 및 마스터링 과정에 사용된다.",
+    "url": "https://ko.wikipedia.org/wiki/%ED%94%84%EB%A1%9C_%ED%88%B4%EC%8A%A4",
+    "section": "위키백과: 프로 툴스 개요"
+  },
+  {
+    "id": "PT-014",
+    "text": "프로 툴스는 16비트, 24비트 및 32비트 부동소수점 오디오 비트 심도와 최대 192 kHz의 샘플 레이트를 지원한다. 세션 내에서 혼합된 비트 심도와 오디오 포맷(BWF/WAV, AIFF)을 지원하며, MP3, AAC, M4A 같은 손실 압축 포맷과 비디오 파일(MOV, MP4, M4V)의 오디오를 가져올 수 있다.",
+    "url": "https://ko.wikipedia.org/wiki/%ED%94%84%EB%A1%9C_%ED%88%B4%EC%8A%A4",
+    "section": "위키백과: 프로 툴스 지원 오디오 형식"
+  },
+  {
+    "id": "PT-015",
+    "text": "레이턴시(latency)는 오디오 신호가 시스템에 입력된 시점부터 출력되는 시점까지 발생하는 짧은 지연 시간을 의미한다. 오디오 시스템에서 레이턴시를 유발하는 요소로는 아날로그-디지털 변환회로, 버퍼링, 디지털 신호 처리, 전송 시간, 디지털-아날로그 변환회로, 그리고 매질에서의 음속 등이 있다.",
+    "url": "https://ko.wikipedia.org/wiki/%EB%A0%88%EC%9D%B4%ED%84%B4%EC%8B%9C_%28%EC%98%A4%EB%94%94%EC%98%A4%29",
+    "section": "위키백과: 오디오 레이턴시"
+  },
+  {
+    "id": "PT-016",
+    "text": "샘플링 레이트(sampling rate) 또는 샘플링 주파수는 이산적인 신호를 만들기 위해 연속적 신호에서 얻어진 단위시간(주로 초)당 샘플링 횟수를 정의하며 단위는 헤르츠다. 인간의 가청 주파수 범위는 20Hz에서 20kHz이고, 이 대역폭에서 표본화 정리를 만족시키는 최소 샘플링 레이트는 40kHz다. 컴팩트 디스크의 44.1 kHz 샘플링 레이트는 이것 혹은 다른 기술적 이유 때문에 채택되었다.",
+    "url": "https://ko.wikipedia.org/wiki/%EC%83%98%ED%94%8C%EB%A7%81_%EC%86%8D%EB%8F%84",
+    "section": "위키백과: 샘플링 레이트"
+  },
+  {
+    "id": "PT-017",
+    "text": "PCM을 사용하는 디지털 오디오에서 비트 심도(bit depth)는 각 샘플의 정보 비트 수이며 각 샘플의 해상도와 직접적으로 일치한다. 예로는 샘플당 16비트를 사용하는 콤팩트 디스크, 샘플당 최대 24비트를 지원하는 DVD 오디오와 블루레이 디스크가 있다. 비트 심도의 변화는 주로 양자화 오류로 인한 잡음 수준, 즉 신호 대 잡음비와 다이내믹 레인지에 영향을 미치며, 비트레이트와 파일 크기에도 영향을 미친다.",
+    "url": "https://ko.wikipedia.org/wiki/%EC%98%A4%EB%94%94%EC%98%A4_%EB%B9%84%ED%8A%B8_%EC%8B%AC%EB%8F%84",
+    "section": "위키백과: 오디오 비트 심도"
+  },
+  {
+    "id": "PT-018",
+    "text": "오디오 인터페이스(audio interface)는 오디오 신호의 입출력을 호스트 컴퓨터, 녹음 기기와 오갈 수 있도록 도와주는 컴퓨터 하드웨어이다. 사운드 카드가 오디오 재생에 최적화되어 있는 반면, 오디오 인터페이스는 주로 낮은 레이턴시의 아날로그-디지털 변환회로와 프로페셔널 오디오 애플리케이션을 위한 디지털 포맷 변환을 제공하도록 고안되었다.",
+    "url": "https://ko.wikipedia.org/wiki/%EC%98%A4%EB%94%94%EC%98%A4_%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4",
+    "section": "위키백과: 오디오 인터페이스"
+  },
+  {
+    "id": "PT-019",
+    "text": "오디오 믹싱(audio mixing)은 여러 사운드를 하나 이상의 오디오 채널로 결합하는 과정이다. 이 과정에서 소스의 볼륨 레벨, 주파수 내용, 다이내믹스, 파노라마 위치가 조작되거나 향상된다. 오디오 믹싱은 음악, 영화, 텔레비전 및 라이브 사운드를 위해 실천되며, 일반적으로 믹싱 엔지니어가 오디오 믹서 또는 디지털 오디오 워크스테이션을 작동하여 수행한다.",
+    "url": "https://ko.wikipedia.org/wiki/%EC%98%A4%EB%94%94%EC%98%A4_%EB%AF%B9%EC%8B%B1",
+    "section": "위키백과: 오디오 믹싱"
   }
 ]
