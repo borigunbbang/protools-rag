@@ -39,6 +39,7 @@
 - 벡터는 정규화되어 있으므로 코사인 유사도 = 내적. 점수 내림차순 top-k(기본 3, --k로 변경).
 - 약한 근거 기준 WEAK_THRESHOLD = 0.55는 src/search.mjs에서만 정의·export하고 다른 파일은 import.
   1위 점수가 이보다 낮으면 "관련 자료가 약함" 표시. 결과는 버리지 않는다. 0.55가 맞는지는 STEP 5에서 관찰 후 조정.
+- (선택) --hybrid: 코사인 상위 10개 + 겹치지 않는 BM25(k1=1.5, b=0.75) 상위 5개. 토큰화는 소문자화 → [^가-힣a-z0-9]+ 분리 → 2글자 미만·흔한 조사/요청어 제거, tf는 "토큰이 검색어를 포함"으로 센다. BM25 점수는 후보 중 최고점으로 나눠 0~1. 결과에 [vector]/[bm25] 표시. 옵션이 없으면 기본 동작 그대로.
 - search.mjs는 직접 실행됐을 때만 CLI를 돈다(import.meta.url === pathToFileURL(process.argv[1]).href).
 
 ## 생성 계약 (2단계)
@@ -53,4 +54,5 @@
 - LLM: Ollama http://localhost:11434, 모델 qwen3.5:2b, POST /api/chat,
   { model, messages, stream: true, think: false, options: { temperature: 0 } }. 응답은 NDJSON, TextDecoder { stream: true }.
 - 근거 표시는 LLM에 맡기지 않는다. 답변 뒤에 LLM에게 넘긴 자료를 모두 보여 주고, 답변에 ID가 적힌 자료에 ✓를 붙인다.
+- (선택) 대화형 모드: 질문 없이 node src/ask.mjs [--k 3] [--no-rag]. node:readline만 사용, 시작 시 Ollama 확인과 임베딩 모델 로드를 한 번만. 질문끼리 독립(앞 질문 기억 안 함). exit/quit/Ctrl+C로 종료, 답변 중 오류가 나도 다음 질문을 받는다.
 - Ollama 연결 확인은 실제로 LLM을 호출할 때만(--show-prompt는 Ollama 없이 동작). 연결 실패 시 "Ollama가 실행 중인지 확인하세요"와 확인 명령 안내 후 종료.
