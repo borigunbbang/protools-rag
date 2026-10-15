@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pro Tools 챗봇</title>
+<style>
+  :root { --bg:#f6f6f4; --card:#fff; --text:#1d1d1f; --muted:#6e6e73; --line:#e3e3e0; --accent:#3b5bdb; --warn:#b26a00; --warn-bg:#fff4e0; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#161617; --card:#232325; --text:#ececec; --muted:#9a9aa0; --line:#38383b; --accent:#8ea2ff; --warn:#ffb648; --warn-bg:#3a2c12; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:15px/1.6 -apple-system, "Apple SD Gothic Neo", sans-serif; }
+  main { max-width:760px; margin:0 auto; padding:24px 16px 120px; }
+  h1 { font-size:20px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 24px; font-size:13px; }
+  .turn { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:16px; }
+  .q { font-weight:600; margin-bottom:10px; }
+  .answer { white-space:pre-wrap; }
+  .meta { margin-top:12px; padding-top:10px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
+  .meta a { color:var(--accent); text-decoration:none; }
+  .src { display:flex; gap:8px; }
+  .src .mark { width:1em; color:var(--accent); }
+  .warn { background:var(--warn-bg); color:var(--warn); border-radius:8px; padding:6px 10px; font-size:13px; margin-bottom:10px; }
+  .error { color:var(--warn); }
+  form { position:fixed; left:0; right:0; bottom:0; background:var(--bg); border-top:1px solid var(--line); padding:12px 16px; }
+  .row { max-width:760px; margin:0 auto; display:flex; gap:8px; }
+  input { flex:1; padding:12px 14px; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--text); font-size:15px; }
+  button { padding:0 18px; border:0; border-radius:10px; background:var(--accent); color:#fff; font-size:15px; cursor:pointer; }
+  button:disabled { opacity:.5; cursor:default; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Pro Tools 사용법 안내 챗봇</h1>
+  <p class="sub">공식 매뉴얼·위키백과·작업 SOP를 근거로 답합니다. 질문끼리는 서로 독립이라, 매번 완전한 문장으로 물어보세요.</p>
+  <div id="log"></div>
+</main>
+<form id="form">
+  <div class="row">
+    <input id="q" placeholder="예: 페이드 인은 어떻게 만들어?" autocomplete="off" autofocus>
+    <button id="send">보내기</button>
+  </div>
+</form>
+<script>
+const log = document.getElementById("log");
+const form = document.getElementById("form");
+const input = document.getElementById("q");
+const button = document.getElementById("send");
+
+function el(tag, cls, text) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (text != null) e.textContent = text;
+  return e;
+}
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const question = input.value.trim();
+  if (!question) return;
+  input.value = "";
+  button.disabled = true;
+
+  const turn = el("div", "turn");
+  turn.append(el("div", "q", question));
+  const warnBox = el("div");
+  const answer = el("div", "answer", "검색 중…");
+  const meta = el("div", "meta");
+  turn.append(warnBox, answer, meta);
+  log.append(turn);
+  turn.scrollIntoView({ behavior: "smooth", block: "end" });
+
+  let hits = [], weak = false, started = false;
+  try {
+    const res = await fetch("/api/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question }),
+    });
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split("\n");
+      buffer = lines.pop();
+      for (const line of lines) {
+        if (!line.trim()) continue;
+        const ev = JSON.parse(line);
+        if (ev.type === "error") {
+          answer.textContent = "";
+          answer.append(el("span", "error", ev.message));
+        } else if (ev.type === "hits") {
+          hits = ev.hits; weak = ev.weak;
+          if (weak) warnBox.append(el("div", "warn", `⚠ 관련 자료가 약합니다 (1위 점수 ${hits[0].score.toFixed(3)} < ${ev.threshold})`));
+          answer.textContent = "답변 생성 중…";
+        } else if (ev.type === "token") {
+          if (!started) { answer.textContent = ""; started = true; }
+          answer.textContent += ev.text;
+        } else if (ev.type === "done") {
+          meta.append(el("div", null, "📚 근거 (LLM에게 넘긴 자료 · ✓ = 답변에 ID가 표시된 자료)"));
+          for (const h of hits) {
+            const row = el("div", "src");
+            row.append(el("span", "mark", ev.cited.includes(h.id) ? "✓" : ""));
+            const a = el("a", null, `${h.id} ${h.section}`);
+            a.href = h.url.startsWith("docs/") ? "/docs/sop.md" : h.url;
+            a.target = "_blank";
+            row.append(a, el("span", null, h.score.toFixed(3)));
+            meta.append(row);
+          }
+          if (weak) meta.append(el("div", null, "⚠ 관련 자료가 약해 이 자료들을 답변의 근거로 보기 어렵습니다"));
+          else if (!ev.cited.length) meta.append(el("div", null, "(답변에 ID 표시가 없습니다. 위 자료와 답변을 비교해 확인하세요)"));
+          meta.append(el("div", null, `⏱ 검색 ${ev.searchSec.toFixed(1)}초 · 답변 ${ev.answerSec.toFixed(1)}초`));
+        }
+      }
+      turn.scrollIntoView({ block: "end" });
+    }
+  } catch (err) {
+    answer.textContent = "";
+    answer.append(el("span", "error", "서버에 연결할 수 없습니다. 챗봇 실행 창이 켜져 있는지 확인하세요."));
+  } finally {
+    button.disabled = false;
+    input.focus();
+  }
+});
+</script>
+</body>
+</html>

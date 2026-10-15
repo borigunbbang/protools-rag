@@ -6,7 +6,7 @@
 - 1단계: 질문과 관련된 매뉴얼 조각을 찾아서 보여 준다. 2단계: 찾은 조각들을 LLM에 넣어서 답을 받는다.
 
 ## 비목표
-- 웹 화면, 서버, 배포는 안 한다.
+- 외부 배포는 안 한다. (선택 기능으로 내 PC에서만 열리는 로컬 웹 화면 http://localhost:3000 은 둔다.)
 - Pro Tools 세션 정보를 실시간으로 조회하거나 직접 조작하는 기능은 안 한다.
 - 플러그인 추천, 구매·라이선스 상담, 다른 DAW 사용법 안내는 안 한다.
 
@@ -56,4 +56,7 @@
   { model, messages, stream: true, think: false, options: { temperature: 0 } }. 응답은 NDJSON, TextDecoder { stream: true }.
 - 근거 표시는 LLM에 맡기지 않는다. 답변 뒤에 LLM에게 넘긴 자료를 모두 보여 주고, 답변에 ID가 적힌 자료에 ✓를 붙인다.
 - (선택) 대화형 모드: 질문 없이 node src/ask.mjs [--k 3] [--no-rag]. node:readline만 사용, 시작 시 Ollama 확인과 임베딩 모델 로드를 한 번만. 질문끼리 독립(앞 질문 기억 안 함). exit/quit/Ctrl+C로 종료, 답변 중 오류가 나도 다음 질문을 받는다.
+- (선택) 로컬 웹 화면: src/server.mjs(node:http만 사용, 127.0.0.1:3000, 라이브러리 추가 없음) + web/index.html.
+  POST /api/ask {question} → NDJSON 이벤트 hits(weak 포함) → token… → done(cited, 시간) / error. search·buildPrompt·chatStream을 그대로 재사용하고 규칙은 ask.mjs와 같다.
+  ProTools챗봇.command를 더블클릭하면 Ollama 켜기 → 서버 실행 → 브라우저 열기. 실행 창을 닫으면 서버도 꺼진다. 터미널 방식(ask.mjs)은 그대로 둔다.
 - Ollama 연결 확인은 실제로 LLM을 호출할 때만(--show-prompt는 Ollama 없이 동작). 연결 실패 시 "Ollama가 실행 중인지 확인하세요"와 확인 명령 안내 후 종료.
